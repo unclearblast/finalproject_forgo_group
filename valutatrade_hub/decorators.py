@@ -15,6 +15,7 @@ _REPR_MAX = 80
 
 
 def _short(value: Any, max_len: int = _REPR_MAX) -> str:
+    """Return ``repr(value)`` truncated to ``max_len`` characters."""
     try:
         text = repr(value)
     except Exception:  # noqa: BLE001 — defensive against broken __repr__
@@ -23,6 +24,7 @@ def _short(value: Any, max_len: int = _REPR_MAX) -> str:
 
 
 def _render_call(args: tuple[Any, ...], kwargs: dict[str, Any]) -> str:
+    """Render call arguments as a single string for logging."""
     pieces = [_short(a) for a in args]
     pieces.extend(f"{k}={_short(v)}" for k, v in kwargs.items())
     return "(" + ", ".join(pieces) + ")"
@@ -33,6 +35,7 @@ def log_action(func: F) -> F:
 
     @functools.wraps(func)
     def wrapper(*args: Any, **kwargs: Any) -> Any:
+        """Inner wrapper that adds logging (docstring overwritten by ``functools.wraps``)."""
         logger = get_logger(func.__module__.rsplit(".", 1)[-1])
         rendered = _render_call(args, kwargs)
         logger.info("ENTER %s%s", func.__qualname__, rendered)
