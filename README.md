@@ -238,6 +238,17 @@ Error: Invalid username or password
 Python 3.11+, **uv**, `pyproject.toml` (PEP 621), `requests`, `prettytable`,
 **ruff**, GitHub Flow (`feature/*` → `--no-ff` merge), **asciinema**.
 
+## Известные ограничения
+
+- Хранилище — JSON-файлы, не СУБД: конкурентная запись из нескольких
+  процессов не защищена (для учебного проекта приемлемо).
+- Пользователь идентифицируется по `username`, не по email; менять пароль
+  через CLI нельзя (только перерегистрация под другим именем).
+- `register` даёт фиксированный стартовый баланс `10 000 USD`; команды
+  `deposit`/`withdraw` в CLI нет — только `buy`/`sell`.
+- Asciinema-демо в README записывается один раз; курсы на момент записи и
+  на момент чтения могут различаться (историчность в `exchange_rates.json`).
+
 ## Демо
 
 [![asciicast](https://asciinema.org/a/REPLACE_ID.svg)](https://asciinema.org/a/REPLACE_ID)
