@@ -1,0 +1,38 @@
+# Python
+.venv/
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+
+# Tooling caches
+.ruff_cache/
+.pytest_cache/
+.mypy_cache/
+
+# uv
+uv.lock.bak
+
+# Runtime data (создаётся при первом запуске)
+data/*.json
+!data/.gitkeep
+
+# Logs
+logs/
+*.log
+
+# Asciinema
+*.cast
+
+# Secrets / env
+.env
+.env.*
+!.env.example
+*.env
+
+# IDE / OS
+.idea/
+.vscode/
+*.swp
+.DS_Store
