@@ -251,4 +251,4 @@ Python 3.11+, **uv**, `pyproject.toml` (PEP 621), `requests`, `prettytable`,
 
 ## Демо
 
-[![asciicast](https://asciinema.org/a/REPLACE_ID.svg)](https://asciinema.org/a/REPLACE_ID)
+[![asciicast](https://asciinema.org/a/xXJnPmJim4m3swhG.svg)](https://asciinema.org/a/xXJnPmJim4m3swhG)
